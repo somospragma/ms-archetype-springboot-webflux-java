@@ -1,0 +1,69 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.7'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.mercantil'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springCloudAzureVersion', "5.19.0")
+}
+
+dependencies {
+
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'com.azure.spring:spring-cloud-azure-starter-keyvault'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'com.google.code.gson:gson:2.11.0'
+	runtimeOnly 'io.netty:netty-resolver-dns-native-macos:4.1.115.Final:osx-aarch_64'
+
+	//Logging
+	implementation 'com.microsoft.azure:applicationinsights-spring-boot-starter:2.6.4'
+	implementation 'com.microsoft.azure:applicationinsights-logging-logback:2.6.4'
+
+	//Relational persistence
+	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+
+	//Sql driver server r2dbc
+	implementation 'io.r2dbc:r2dbc-mssql'
+
+	//Mongo dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+
+	//service bus
+	implementation 'com.azure:azure-messaging-servicebus:7.17.7'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "com.azure.spring:spring-cloud-azure-dependencies:${springCloudAzureVersion}"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
