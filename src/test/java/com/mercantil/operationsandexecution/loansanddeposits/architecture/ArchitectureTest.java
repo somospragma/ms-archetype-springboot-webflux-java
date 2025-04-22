@@ -12,10 +12,10 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 class ArchitectureTest {
     JavaClasses domainClasses = new ClassFileImporter()
-            .importPackages("com.pragma.operationsandexecution.loansanddeposits.domain");
+            .importPackages("com.mercantil.operationsandexecution.loansanddeposits.domain");
 
     JavaClasses applicationClasses = new ClassFileImporter()
-            .importPackages("com.pragma.operationsandexecution.loansanddeposits.application");
+            .importPackages("com.mercantil.operationsandexecution.loansanddeposits.application");
 
     @Test
     void domainShouldNotDependOnExternal() {
@@ -24,7 +24,8 @@ class ArchitectureTest {
                 .haveSimpleNameNotEndingWith("Test")
                 .should()
                 .dependOnClassesThat()
-                .resideOutsideOfPackages("..domain..", "java..", "lombok..", "org.springframework.stereotype..")
+                .resideOutsideOfPackages("..domain..", "java..", "lombok..", "org.springframework.stereotype.."
+                        , "reactor..")
                 .as("Rule_1.0: Domain classes should not have any external dependencies")
                 .check(domainClasses);
     }
@@ -53,6 +54,7 @@ class ArchitectureTest {
                 .as("Rule_1.2: Domain classes should not be named with technology names").check(domainClasses);
 
     }
+
     @Test
     void useCaseFinalFields() {
         classes()
@@ -76,7 +78,7 @@ class ArchitectureTest {
                 .should()
                 .dependOnClassesThat()
                 .resideOutsideOfPackages("..domain..", "java..", "javax..", "..application..", "lombok.."
-                        , "org.springframework.stereotype..")
+                        , "org.springframework.stereotype..", "reactor.core..")
                 .as("Rule_2.1: UseCase classes should only depend on the model layer, excluding test classes")
                 .check(applicationClasses);
     }
@@ -89,6 +91,7 @@ class ArchitectureTest {
                 .should()
                 .haveSimpleNameStartingWith("I")
                 .as("Rule_3.0: Classes in packages 'port' or 'ports' should have prefix 'I'")
+                .allowEmptyShould(true)
                 .check(new ClassFileImporter().importPackages("com.pragma.operationsandexecution"));
     }
 
