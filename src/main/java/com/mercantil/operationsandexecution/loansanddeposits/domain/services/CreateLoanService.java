@@ -1,8 +1,8 @@
 package com.mercantil.operationsandexecution.loansanddeposits.domain.services;
 
-import com.mercantil.operationsandexecution.crosscutting.domain.models.exception.AppException;
-import com.mercantil.operationsandexecution.crosscutting.domain.models.exception.ConstantException;
+
 import com.mercantil.operationsandexecution.crosscutting.domain.models.labels.DomainService;
+import com.mercantil.operationsandexecution.crosscutting.exception.ConstantException;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.LoanCreate;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.ports.in.ICreateLoan;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.ports.out.GetMaxAmountAvailableLoan;
@@ -29,6 +29,6 @@ public class CreateLoanService implements ICreateLoan {
 
     private Mono<Void> validateLoanLimit(BigDecimal amountLoanToCreate, BigDecimal limitLoan){
         return Mono.defer(() -> amountLoanToCreate.compareTo(limitLoan) > 0 ?
-                Mono.error(new AppException(ConstantException.LOAN_AMOUNT_EXCEEDS_LIMIT)) : Mono.empty());
+                Mono.error(new com.mercantil.operationsandexecution.crosscutting.exception.AppException(ConstantException.LOAN_AMOUNT_EXCEEDS_LIMIT)) : Mono.empty());
     }
 }
