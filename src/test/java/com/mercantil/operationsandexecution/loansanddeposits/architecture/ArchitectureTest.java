@@ -95,4 +95,26 @@ class ArchitectureTest {
                 .check(new ClassFileImporter().importPackages("com.pragma.operationsandexecution"));
     }
 
+    @Test
+    void portsShouldBeInterfaces() {
+        classes()
+                .that()
+                .resideInAnyPackage("..ports..")
+                .should()
+                .beInterfaces()
+                .allowEmptyShould(true)
+                .as("Rule_3.1: Ports must be interfaces (Domain)")
+                .check(domainClasses);
+        classes()
+                .that()
+                .resideInAnyPackage("..ports..")
+                .should()
+                .beInterfaces()
+                .allowEmptyShould(true)
+                .as("Rule_3.1: Ports must be interface s (Application)")
+                .check(applicationClasses);
+    }
+
+
+
 }
