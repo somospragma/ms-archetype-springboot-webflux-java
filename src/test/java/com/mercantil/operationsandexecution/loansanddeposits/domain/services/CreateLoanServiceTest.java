@@ -1,6 +1,6 @@
 package com.mercantil.operationsandexecution.loansanddeposits.domain.services;
 
-import com.mercantil.operationsandexecution.crosscutting.exception.ConstantException;
+import com.mercantil.operationsandexecution.loansanddeposits.domain.exception.ConstantException;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.LoanCreate;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.LoanLimitInfo;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.ports.out.GetMaxAmountAvailableLoan;

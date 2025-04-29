@@ -1,9 +1,9 @@
 package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.routerhandler;
 
-import com.mercantil.operationsandexecution.crosscutting.infraestructure.entrypoints.rest.model.ConstEntryPointRest;
 import com.mercantil.operationsandexecution.loansanddeposits.application.usecase.LoanCreateUseCase;
-import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.model.request.CreateLoanBodyReq;
-import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.router.model.CreateLoanReqMother;
+import com.mercantil.operationsandexecution.loansanddeposits.domain.models.LoanCreate;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.model.ConstEntryPointRest;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.router.model.CreateLoanReqFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -42,12 +42,12 @@ class CreateLoanHandlerTest {
     @Test
     void testCreateLoanHandle(){
         //Given
-        CreateLoanBodyReq createLoanBodyReq = CreateLoanReqMother.build();
+        var createLoanBodyReq = CreateLoanReqFactory.build();
 
         //when
         when(mockRequest.headers().firstHeader(ConstEntryPointRest.HeaderKeys.MESSAGE_ID))
                 .thenReturn(MESSAGE_ID_VALUE);
-        when(mockRequest.bodyToMono(CreateLoanBodyReq.class))
+        when(mockRequest.bodyToMono(LoanCreate.class))
                 .thenReturn(Mono.just(createLoanBodyReq));
         when(loanCreateUseCase.create(any()))
                 .thenReturn(Mono.empty());

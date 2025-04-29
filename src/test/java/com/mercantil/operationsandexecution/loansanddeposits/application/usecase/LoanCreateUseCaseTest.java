@@ -1,19 +1,15 @@
 package com.mercantil.operationsandexecution.loansanddeposits.application.usecase;
 
-import com.mercantil.operationsandexecution.crosscutting.application.usecase.LoggerRegistryUseCase;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.ports.in.ICreateLoan;
-import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.model.request.CreateLoanBodyReq;
-import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.router.model.CreateLoanReqMother;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.router.model.CreateLoanReqFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.web.reactive.function.server.support.ServerRequestWrapper;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -35,7 +31,7 @@ class LoanCreateUseCaseTest {
     @Test
     void testCreateLoanSuccess() {
         //given
-        CreateLoanBodyReq createLoanBodyReq = CreateLoanReqMother.build();
+        var loanCreate = CreateLoanReqFactory.build();
 
         //when
         when(iCreateLoan.createLoan(any())).thenReturn(Mono.empty());
@@ -43,7 +39,7 @@ class LoanCreateUseCaseTest {
                 .thenReturn(Mono.empty());
 
         //
-        loanCreateUseCase.create(createLoanBodyReq)
+        loanCreateUseCase.create(loanCreate)
                 .as(StepVerifier::create)
                 .verifyComplete();
 

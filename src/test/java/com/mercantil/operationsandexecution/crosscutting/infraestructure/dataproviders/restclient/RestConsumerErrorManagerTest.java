@@ -2,9 +2,9 @@ package com.mercantil.operationsandexecution.crosscutting.infraestructure.datapr
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mercantil.operationsandexecution.crosscutting.exception.AppException;
-import com.mercantil.operationsandexecution.crosscutting.exception.ConstantException;
-import com.mercantil.operationsandexecution.crosscutting.restclient.RestConsumerErrorManager;
+import com.mercantil.operationsandexecution.loansanddeposits.domain.exception.AppException;
+import com.mercantil.operationsandexecution.loansanddeposits.domain.exception.ConstantException;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.restclient.RestConsumerErrorManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

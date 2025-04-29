@@ -2,11 +2,11 @@ package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.en
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mercantil.operationsandexecution.crosscutting.infraestructure.entrypoints.rest.model.BaseSuccessResponse;
-import com.mercantil.operationsandexecution.crosscutting.infraestructure.entrypoints.rest.model.ConstEntryPointRest;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.model.BaseSuccessResponse;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.model.ConstEntryPointRest;
 import com.mercantil.operationsandexecution.loansanddeposits.application.usecase.LoanCreateUseCase;
 import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.model.request.CreateLoanBodyReq;
-import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.router.model.CreateLoanReqMother;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.router.model.CreateLoanReqFactory;
 import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.router.model.EntryPointConstantTests;
 import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.routerhandler.CreateLoanHandler;
 import org.junit.jupiter.api.Assertions;
@@ -51,7 +51,7 @@ class CreateLoanRouterTest {
     void testValidateEndpointSignature(){
         // Given
         ObjectMapper objectMapper = new ObjectMapper();
-        CreateLoanBodyReq mockRequest = CreateLoanReqMother.build();
+        var mockRequest = CreateLoanReqFactory.build();
 
         // Then
         webTestClient.post()
@@ -66,7 +66,7 @@ class CreateLoanRouterTest {
                     BaseSuccessResponse response = objectMapper.convertValue(Objects.requireNonNull(
                             apiResponse.getResponseBody()), BaseSuccessResponse.class);
 
-                    String expectedResponse = CreateLoanReqMother.buildJsonResponse(response.getTimestamp());
+                    String expectedResponse = CreateLoanReqFactory.buildJsonResponse(response.getTimestamp());
                     try {
                         var responseJson = objectMapper.writeValueAsString(response);
 

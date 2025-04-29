@@ -1,8 +1,7 @@
 package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.restclient;
 
-import com.mercantil.operationsandexecution.crosscutting.restclient.IGenericRestClient;
-import com.mercantil.operationsandexecution.crosscutting.restclient.RestConsumerErrorManager;
-import com.mercantil.operationsandexecution.loansanddeposits.domain.models.SomeByRestModel;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.restclient.IGenericRestClient;
+import com.mercantil.operationsandexecution.loansanddeposits.domain.models.SomeByRest;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.ports.out.GetSomeByRest;
 import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.restclient.model.Constants;
 import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.restclient.model.ConsumeParams;
@@ -24,10 +23,10 @@ public class RestConsumer implements GetSomeByRest {
     private final IGenericRestClient genericRestClient;
 
     @Override
-    public Mono<SomeByRestModel> getSomeByRest() {
+    public Mono<SomeByRest> getSomeByRest() {
 
         return Mono.deferContextual(contextView -> genericRestClient.exchange(consumeParams.getCompleteUri(),
-                        HttpMethod.GET.name(), null, SomeByRestModel.class, createHeaders())
+                        HttpMethod.GET.name(), null, SomeByRest.class, createHeaders())
                 .onErrorResume(Throwable.class, Mono::error)
         );
     }
