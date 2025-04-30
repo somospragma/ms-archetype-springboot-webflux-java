@@ -1,7 +1,7 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.database.mongo.implementation.mapper;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.mongo.mapper;
 
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.LoanLimitInfo;
-import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.database.mongo.LoanLimitsData;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.mongo.entity.LoanLimitsData;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

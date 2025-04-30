@@ -1,9 +1,7 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.database.sqlserver.config;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.sqlserver.config;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter

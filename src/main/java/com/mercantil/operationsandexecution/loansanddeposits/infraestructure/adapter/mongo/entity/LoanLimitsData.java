@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.database.mongo;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.mongo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

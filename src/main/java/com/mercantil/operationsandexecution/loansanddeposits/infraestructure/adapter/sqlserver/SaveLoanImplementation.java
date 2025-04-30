@@ -1,15 +1,14 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.database.sqlserver;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.sqlserver;
 
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.LoanCreate;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.ports.out.SaveLoanPersistence;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
-import static com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.database.sqlserver.mapper.LoanDataMapper.toData;
+import static com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.sqlserver.mapper.LoanDataMapper.toData;
 
 @Component
 @RequiredArgsConstructor

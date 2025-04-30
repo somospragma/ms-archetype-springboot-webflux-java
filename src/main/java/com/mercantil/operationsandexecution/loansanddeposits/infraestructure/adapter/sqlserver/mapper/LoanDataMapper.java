@@ -1,7 +1,7 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.database.sqlserver.mapper;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.sqlserver.mapper;
 
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.LoanCreate;
-import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.database.sqlserver.data.LoanData;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.sqlserver.data.LoanData;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.crosslogging;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.errorlogging;
 
 import com.google.gson.Gson;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.EnumMsAction;

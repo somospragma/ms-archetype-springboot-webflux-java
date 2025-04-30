@@ -14,4 +14,5 @@ public class LoanMapper {
                 request.getAmount(),
                 request.getInterestRate());
     }
+
 }

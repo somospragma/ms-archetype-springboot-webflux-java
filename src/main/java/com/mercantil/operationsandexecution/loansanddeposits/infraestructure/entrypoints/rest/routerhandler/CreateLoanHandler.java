@@ -6,6 +6,7 @@ import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.ent
 import com.mercantil.operationsandexecution.loansanddeposits.application.usecase.LoanCreateUseCase;
 import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.model.request.CreateLoanBodyReq;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ import reactor.core.publisher.Mono;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class CreateLoanHandler {
     private final LoanCreateUseCase loanCreateUseCase;
 
@@ -22,6 +24,7 @@ public class CreateLoanHandler {
         // TODO: 22/01/25  Agregar headers mandatorios.
         return serverRequest.bodyToMono(CreateLoanBodyReq.class)
                 .map(LoanMapper::toModel)
+                .doOnNext(loanCreate -> log.info("Creando prestamo con id: {}"))
                 .flatMap(loanCreateUseCase::create)
                 .then(Mono.defer(() -> ServerResponse
                         .status(HttpStatus.CREATED)

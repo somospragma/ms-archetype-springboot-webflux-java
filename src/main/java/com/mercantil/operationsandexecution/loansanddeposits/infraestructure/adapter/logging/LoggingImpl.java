@@ -19,11 +19,11 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class LoggingImpl implements OutLoggerRegistry {
     private final TelemetryClient telemetryClient;
-    private static final Map<MessageType, com.microsoft.applicationinsights.telemetry.SeverityLevel> SEVERITY_LEVELS = Map.of(
-            MessageType.INFO, com.microsoft.applicationinsights.telemetry.SeverityLevel.Information,
-            MessageType.WARNING, com.microsoft.applicationinsights.telemetry.SeverityLevel.Warning,
-            MessageType.ERROR, com.microsoft.applicationinsights.telemetry.SeverityLevel.Error,
-            MessageType.SUCCESS, com.microsoft.applicationinsights.telemetry.SeverityLevel.Information
+    private static final Map<MessageType, SeverityLevel> SEVERITY_LEVELS = Map.of(
+            MessageType.INFO, SeverityLevel.Information,
+            MessageType.WARNING, SeverityLevel.Warning,
+            MessageType.ERROR, SeverityLevel.Error,
+            MessageType.SUCCESS, SeverityLevel.Information
     );
 
     public static final String LOG_TRANSACTION_ID = "transactionId = ";

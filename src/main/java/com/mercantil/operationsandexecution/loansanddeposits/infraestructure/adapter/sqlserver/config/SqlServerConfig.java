@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.database.sqlserver.config;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.sqlserver.config;
 
 import io.r2dbc.mssql.MssqlConnectionConfiguration;
 import io.r2dbc.mssql.MssqlConnectionFactory;

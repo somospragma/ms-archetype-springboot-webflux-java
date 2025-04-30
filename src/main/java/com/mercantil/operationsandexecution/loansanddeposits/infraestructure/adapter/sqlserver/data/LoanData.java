@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.database.sqlserver.data;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.sqlserver.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

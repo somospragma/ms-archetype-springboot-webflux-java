@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.crosslogging.config;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.logging.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,6 +23,7 @@ public class LoggingConfig {
         TelemetryConfiguration configuration = TelemetryConfiguration.getActive();
         configuration.setInstrumentationKey(instrumentationKey);
         configuration.setRoleName(msName);
+        //configuration.setInstrumentationKey("a285f386-66b5-4fd3-9b63-7c75d25c71fc");
 
         // Crear y devolver el cliente de telemetría
         return new TelemetryClient(configuration);

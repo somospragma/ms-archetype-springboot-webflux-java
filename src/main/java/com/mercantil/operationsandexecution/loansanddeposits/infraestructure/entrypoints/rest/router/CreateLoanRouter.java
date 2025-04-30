@@ -1,7 +1,6 @@
 package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.router;
 
 import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.routerhandler.CreateLoanHandler;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RouterFunction;
@@ -14,8 +13,8 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class CreateLoanRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> routerFunction(@Value("${app.url.createloan}") String route,
-                                                         CreateLoanHandler handler){
-        return route(POST(route), handler::handle);
+    public RouterFunction<ServerResponse> routerFunction(CreateLoanHandler handler){
+        return route(POST("loan"), handler::handle);
     }
+
 }
