@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.logging.messages;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.azurelogging.messages;
 
 import java.time.LocalDateTime;
 

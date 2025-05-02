@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.eventbus.config;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.azureeventbus.config;
 
 import com.azure.messaging.servicebus.ServiceBusClientBuilder;
 import com.azure.messaging.servicebus.ServiceBusSenderAsyncClient;

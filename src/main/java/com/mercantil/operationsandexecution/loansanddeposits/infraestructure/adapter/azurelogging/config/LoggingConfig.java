@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.logging.config;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.azurelogging.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

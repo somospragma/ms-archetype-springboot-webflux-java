@@ -1,1 +1,7 @@
+pluginManagement {
+    repositories {
+        mavenLocal() // Check local Maven repo (~/.m2)
+        gradlePluginPortal() // For public plugins like Spring Boot
+    }
+}
 rootProject.name = 'ms-archetype-springboot-webflux-java'

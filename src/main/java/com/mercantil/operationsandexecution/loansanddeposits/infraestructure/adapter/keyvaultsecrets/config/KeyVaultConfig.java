@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.secrets.config;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.keyvaultsecrets.config;
 
 import com.azure.identity.ClientSecretCredential;
 import com.azure.identity.ClientSecretCredentialBuilder;

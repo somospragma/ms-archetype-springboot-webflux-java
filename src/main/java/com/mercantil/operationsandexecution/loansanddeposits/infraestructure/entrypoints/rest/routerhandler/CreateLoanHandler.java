@@ -18,14 +18,15 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 @Slf4j
 public class CreateLoanHandler {
+
     private final LoanCreateUseCase loanCreateUseCase;
 
     public Mono<ServerResponse> handle(ServerRequest serverRequest){
-        // TODO: 22/01/25  Agregar headers mandatorios.
         return serverRequest.bodyToMono(CreateLoanBodyReq.class)
                 .map(LoanMapper::toModel)
                 .doOnNext(loanCreate -> log.info("Creando prestamo con id: {}"))
                 .flatMap(loanCreateUseCase::create)
+                //.doOnNext(loanCreate -> log.info("Prestamo creado con id: {}", loanCreate.getId()))
                 .then(Mono.defer(() -> ServerResponse
                         .status(HttpStatus.CREATED)
                         .contentType(MediaType.APPLICATION_JSON)

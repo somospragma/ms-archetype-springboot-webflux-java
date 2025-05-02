@@ -7,9 +7,9 @@ import com.mercantil.operationsandexecution.loansanddeposits.domain.models.EnumM
 
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.metainfo.ContextDataKey;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.metainfo.MetaData;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.azureerrorlogging.ILoggerService;
 import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.model.ConstEntryPointRest;
 import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.model.GlobalErrorResponse;
-import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.errorlogging.ILoggerService;
 
 import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler;

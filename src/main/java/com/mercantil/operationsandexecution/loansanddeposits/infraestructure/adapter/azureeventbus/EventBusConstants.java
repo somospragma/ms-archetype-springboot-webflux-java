@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.eventbus;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.azureeventbus;
 
 import lombok.experimental.UtilityClass;
 

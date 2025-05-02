@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.errorlogging;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.azureerrorlogging;
 
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.EnumMsAction;
 import reactor.core.publisher.Mono;

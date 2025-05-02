@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.secrets.config;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.keyvaultsecrets.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,11 +1,11 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.secrets;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.keyvaultsecrets;
 
 import com.azure.security.keyvault.secrets.SecretClient;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.eventbus.config.ServiceBusSecret;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.azureeventbus.config.ServiceBusSecret;
 import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.sqlserver.config.SqlServerConnectionProperties;
-import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.dataproviders.restclient.model.ConsumerSecrets;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.keyvaultsecrets.model.ConsumerSecrets;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +26,6 @@ public class SecretsLoader {
         return objectMapper.readValue(stringValue, SqlServerConnectionProperties.class);
     }
 
-    // TODO: 24/01/25 Delete when secret is consumed.
     @Bean
     @Profile("local")
     public SqlServerConnectionProperties loadSqlServerSecrets(){
@@ -34,8 +33,8 @@ public class SecretsLoader {
                 .host("localhost")
                 .port(1433)
                 .dbname("mercantil")
-                .username("SA")
-                .password("reallyStrongPwd123")
+                .username("admin")
+                .password("Admin123456")
                 .build();
     }
 

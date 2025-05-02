@@ -1,4 +1,4 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.entrypoints.rest.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

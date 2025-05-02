@@ -1,10 +1,10 @@
-package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.logging;
+package com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.azurelogging;
 
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.EnumMsAction;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.metainfo.ContextDataKey;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.models.metainfo.MetaData;
 import com.mercantil.operationsandexecution.loansanddeposits.domain.ports.out.OutLoggerRegistry;
-import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.logging.messages.MessageType;
+import com.mercantil.operationsandexecution.loansanddeposits.infraestructure.adapter.azurelogging.messages.MessageType;
 import com.microsoft.applicationinsights.TelemetryClient;
 import com.microsoft.applicationinsights.telemetry.EventTelemetry;
 import com.microsoft.applicationinsights.telemetry.SeverityLevel;
