@@ -5,3 +5,6 @@ pluginManagement {
     }
 }
 rootProject.name = 'ms-archetype-springboot-webflux-java'
+include 'domain'
+include 'infrastructure'
+include 'application'
