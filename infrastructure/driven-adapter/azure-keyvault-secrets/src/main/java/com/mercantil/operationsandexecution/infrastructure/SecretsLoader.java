@@ -7,14 +7,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.mercantil.operationsandexecution.infrastructure.model.ConsumerSecrets;
 import com.mercantil.operationsandexecution.infrastructure.model.SqlServerConnectionProperties;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
+@RequiredArgsConstructor
 public class SecretsLoader {
 
+    private final SecretClient secretClient;
+    private final ObjectMapper objectMapper;
     private static final String SQL_ENV_NAME = "${azure.keyvault.secrets.sqlsecretsname}";
     private static final String REST_ENV_NAME = "${azure.keyvault.secrets.consumersecret}";
 
@@ -43,19 +47,15 @@ public class SecretsLoader {
     @Profile("cloud")
     public ConsumerSecrets loadConsumerRestSecrets(SecretClient secretClient, ObjectMapper objectMapper,
                                                    @Value(REST_ENV_NAME) String restSecretName) throws JsonProcessingException {
-        /*String stringValue = secretClient.getSecret(restSecretName).getValue();
-        return objectMapper.readValue(stringValue, ConsumerSecrets.class);*/
-        return new ConsumerSecrets("clientId", "clientSecret");
+        String stringValue = secretClient.getSecret(restSecretName).getValue();
+        return objectMapper.readValue(stringValue, ConsumerSecrets.class);
+        //return new ConsumerSecrets("clientId", "clientSecret");
     }
 
     @Bean
     @Profile("local")
-    public ConsumerSecrets loadConsumerRestSecretsLocal() {
-        /*String stringValue = secretClient.getSecret(restSecretName).getValue();
-        return objectMapper.readValue(stringValue, ConsumerSecrets.class);*/
+    public ConsumerSecrets loadConsumerRestSecretsLocal(@Value("${azure.secrets.secret-name}") String restSecretName) {
         return new ConsumerSecrets("clientId", "clientSecret");
     }
-
-
 
 }

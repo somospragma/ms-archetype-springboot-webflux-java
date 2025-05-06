@@ -21,6 +21,8 @@ spring:
         uri: https://your-keyvault-name.vault.azure.net/
 
 azure:
+  secrets:
+    secret-name: your_secret_name
   appinsight:
     instrumentationkey: your_instrumentation_key
   service-bus:

@@ -39,7 +39,10 @@ subprojects {
 	apply plugin: 'io.spring.dependency-management'
 	apply plugin: 'jacoco'
 
+	task allDependencies(type: DependencyReportTask) {}
+
 	dependencies {
+
 		implementation 'org.springframework.boot:spring-boot-starter-webflux'
 		implementation 'org.springframework.boot:spring-boot-starter-actuator'
 		runtimeOnly 'io.netty:netty-resolver-dns-native-macos:4.1.115.Final:osx-aarch_64'
