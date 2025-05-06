@@ -12,6 +12,7 @@ dependencies {
     //adapter
     implementation project(':infrastructure:driven-adapter:sql-server')
     implementation project(':infrastructure:driven-adapter:azure-error-logging')
+    implementation project(':infrastructure:driven-adapter:rest')
     implementation project(':infrastructure:driven-adapter:mongo')
     implementation project(':infrastructure:driven-adapter:azure-event-bus')
     implementation project(':infrastructure:driven-adapter:azure-keyvault-secrets')
@@ -19,8 +20,14 @@ dependencies {
     implementation project(':infrastructure:driven-adapter:object-mapper')
     implementation project(':infrastructure:driven-adapter:rest-client')
     implementation project(':infrastructure:driven-adapter:rest-client-get-some')
-
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'io.projectreactor:reactor-core'
+    implementation 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
     
     testImplementation 'com.tngtech.archunit:archunit-junit5:1.4.0'
     testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
 }
