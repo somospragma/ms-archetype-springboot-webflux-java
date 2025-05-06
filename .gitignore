@@ -13,7 +13,7 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-
+.vscode
 # Application src
 **/application-local.yaml
 
