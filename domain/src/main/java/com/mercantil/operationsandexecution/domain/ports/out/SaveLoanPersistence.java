@@ -6,4 +6,5 @@ import reactor.core.publisher.Mono;
 public interface SaveLoanPersistence {
 
     Mono<Void> saveLoanRepository(LoanCreate loanCreate);
+
 }
