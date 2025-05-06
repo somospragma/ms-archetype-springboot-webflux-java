@@ -17,8 +17,6 @@ import org.springframework.context.annotation.Profile;
 @RequiredArgsConstructor
 public class SecretsLoader {
 
-    private final SecretClient secretClient;
-    private final ObjectMapper objectMapper;
     private static final String SQL_ENV_NAME = "${azure.keyvault.secrets.sqlsecretsname}";
     private static final String REST_ENV_NAME = "${azure.keyvault.secrets.consumersecret}";
 
@@ -46,10 +44,10 @@ public class SecretsLoader {
     @Bean
     @Profile("cloud")
     public ConsumerSecrets loadConsumerRestSecrets(SecretClient secretClient, ObjectMapper objectMapper,
-                                                   @Value(REST_ENV_NAME) String restSecretName) throws JsonProcessingException {
+                                                   @Value(REST_ENV_NAME) String restSecretName)
+            throws JsonProcessingException {
         String stringValue = secretClient.getSecret(restSecretName).getValue();
         return objectMapper.readValue(stringValue, ConsumerSecrets.class);
-        //return new ConsumerSecrets("clientId", "clientSecret");
     }
 
     @Bean
