@@ -16,7 +16,7 @@ local.properties
 
 # Application src
 **/application-local.yaml
-**/application.yaml
+
 
 # External tool builders
 .externalToolBuilders/
