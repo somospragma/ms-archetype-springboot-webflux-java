@@ -35,16 +35,7 @@ La Arquitectura Hexagonal (también conocida como Arquitectura de Puertos y Adap
 
 ---
 
-## 5. Descripción de la Carpeta `crosscutting`
-
-La carpeta `crosscutting` contiene componentes transversales que son utilizados en diferentes capas del proyecto. Ejemplos incluyen:
-
-- **Configuraciones compartidas:** Como la configuración de `ObjectMapper`.
-- **Utilidades comunes:** Clases reutilizables que no pertenecen a una capa específica.
-
----
-
-## 6. Descripción de los Distintos Adaptadores Implementados
+## 5. Descripción de los Distintos Adaptadores Implementados
 
 ### Adaptadores de Entrada
 - **REST Controllers:** Exponen los endpoints HTTP para interactuar con el microservicio.
@@ -55,7 +46,7 @@ La carpeta `crosscutting` contiene componentes transversales que son utilizados 
 
 ---
 
-## 7. Descripción General de la Lógica Implementada
+## 6. Descripción General de la Lógica Implementada
 
 El microservicio está diseñado para gestionar la lógica de préstamos y depósitos dentro de una arquitectura hexagonal. A alto nivel, su funcionalidad se puede describir de la siguiente manera:
 
