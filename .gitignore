@@ -13,10 +13,10 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-
+.vscode
 # Application src
 **/application-local.yaml
-**/application.yaml
+
 
 # External tool builders
 .externalToolBuilders/
